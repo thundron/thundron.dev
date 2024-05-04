@@ -1,4 +1,4 @@
-<div id="header-menu" style="text-align:right;"><a href="/thundron.dev">About</a> | <a href="/thundron.dev/articles">Articles</a></div>
+<div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/articles">Articles</a></div>
 
 # Memory safe C++: memory leaks
 
