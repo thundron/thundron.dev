@@ -1,6 +1,6 @@
 <div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/articles">Articles</a></div>
 <div id="header-photo" style="text-align:center;">
-<img src="/header-photo.jpg" style="border-radius:50%;width:150px;height:150px;" />
+<img src="./header-photo.jpg" style="border-radius:50%;width:150px;height:150px;" />
 </div>
 <div id="header-description" style="text-align:center;">
 <h1>Lorenzo Alberto Maria Ambrosi</h1>
