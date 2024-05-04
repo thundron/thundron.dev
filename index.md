@@ -1,6 +1,6 @@
-<div id="header-menu" style="text-align:right;"><a href="./">About</a> | <a href="./articles">Articles</a></div>
+<div id="header-menu" style="text-align:right;"><a href="/thundron.dev">About</a> | <a href="/thundron.dev/articles">Articles</a></div>
 <div id="header-photo" style="text-align:center;">
-<img src="./header-photo.jpg" style="border-radius:50%;width:150px;height:150px;" />
+<img src="/thundron.dev/header-photo.jpg" style="border-radius:50%;width:150px;height:150px;" />
 </div>
 <div id="header-description" style="text-align:center;">
 <h1>Lorenzo Alberto Maria Ambrosi</h1>
@@ -12,4 +12,4 @@ I'm a <a href="https://www.tiktok.com/@matas_valincius/video/7188634272507399429
 
 # Articles
 
-2024 May 03 - [Memory safe C++: memory leaks](./memory-safe-cpp)
+2024 May 03 - [Memory safe C++: memory leaks](/thundron.dev/memory-safe-cpp)
