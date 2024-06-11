@@ -1,3 +1,5 @@
+<script defer data-domain="thundron.dev" src="https://plausible.io/js/script.js"></script>
+
 <div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/articles">Articles</a></div>
 <div id="header-photo" style="text-align:center;">
 <img src="/header-photo.jpg" style="border-radius:50%;width:150px;height:150px;" />
