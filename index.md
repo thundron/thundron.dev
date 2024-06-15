@@ -1,4 +1,4 @@
-<div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/articles">Articles</a></div>
+<div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/notes">Notes</a></div>
 <div id="header-photo" style="text-align:center;">
 <img src="/header-photo.jpg" style="border-radius:50%;width:150px;height:150px;" />
 </div>
@@ -10,6 +10,6 @@ I'm a <a href="https://www.tiktok.com/@matas_valincius/video/7188634272507399429
 <p>Also professional shitposter, but that's for another time.</p>
 </div>
 
-# Articles
+# Notes
 
 2024 May 03 - [Memory safe C++: memory leaks](/memory-safe-cpp)
