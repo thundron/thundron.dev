@@ -1,4 +1,4 @@
-<div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/articles">Notes</a></div>
+<div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/notes">Notes</a></div>
 
 # Notes
 
