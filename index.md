@@ -12,6 +12,7 @@ I'm a <a href="https://www.tiktok.com/@matas_valincius/video/7188634272507399429
 
 # Experiments
 
+[Postman App in Tauri](https://github.com/thundron/postman-app-tauri)
 [Simple neural network in Zig](https://github.com/thundron/zig-simple-neural-network)
 
 # Notes
