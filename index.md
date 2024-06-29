@@ -11,6 +11,7 @@ I'm a <a href="https://www.tiktok.com/@matas_valincius/video/7188634272507399429
 </div>
 
 # Experiments
+[Blockchain in Go](https://github.com/thundron/go-blockchain)
 
 [Postman App in Tauri](https://github.com/thundron/postman-app-tauri)
 
