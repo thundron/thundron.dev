@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive 3D Solar System</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+        #tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #tooltip.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<div id="tooltip" class="tooltip"></div>
+
+<script async
+    src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+    style="position:fixed;right:10px;top:10px;"
+    buy-button-id="buy_btn_1QLwPeB79lThPhnuPv4qRXVv"
+    publishable-key="pk_live_51QK2XhB79lThPhnu1ySVKQ02g0nZiMcMXYj189YzCcZAn6XwxQFtGPv2rVkKQyj2Lk2iNawVq13ceCHp0egO6DZz002eaOPb7N"
+>
+</stripe-buy-button>
+
+<script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
+    scene.add(ambientLight);
+
+    // Add a point light to represent the Sun
+    const sunLight = new THREE.PointLight(0xffffff, 1);
+    sunLight.position.set(0, 0, 0);
+    scene.add(sunLight);
+
+    const sunGeometry = new THREE.SphereGeometry(1, 32, 32);
+    const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffd700 }); // Gold color for the Sun
+    const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);
+    scene.add(sunMesh);
+
+    function createPlanet(name, radius, distance, speed, color) {
+        const geometry = new THREE.SphereGeometry(radius, 32, 32);
+        const material = new THREE.MeshBasicMaterial({ color: color });
+        const mesh = new THREE.Mesh(geometry, material);
+
+        mesh.name = name;
+
+        function animatePlanet() {
+            requestAnimationFrame(animatePlanet);
+            mesh.position.x = distance * Math.cos(speed * Date.now() / 1000);
+            mesh.position.y = distance * Math.sin(speed * Date.now() / 1000);
+        }
+
+        animatePlanet();
+        scene.add(mesh);
+        return mesh;
+    }
+
+    const planets = [
+        createPlanet('Mercury', 0.05, 2, 0.1, 0xcdcdcd), // Light gray
+        createPlanet('Venus', 0.1, 2.5, 0.08, 0xffa500),   // Orange
+        createPlanet('Earth', 0.15, 3, 0.06, 0x0000ff),    // Blue
+        createPlanet('Mars', 0.12, 4, 0.05, 0xff0000),     // Red
+        createPlanet('Jupiter', 0.3, 6, 0.02, 0xffd700),   // Gold
+        createPlanet('Saturn', 0.25, 8, 0.01, 0xd2b48c),   // Tan
+        createPlanet('Uranus', 0.2, 10, 0.007, 0x00ffff),   // Cyan
+        createPlanet('Neptune', 0.2, 12, 0.005, 0x0000ff),   // Blue
+        createPlanet('Pluto', 0.03, 14, 0.003, 0xffa500),    // Orange
+    ];
+
+    const tooltip = document.getElementById('tooltip');
+
+    function onMouseClick(event) {
+        event.preventDefault();
+
+        // Calculate mouse position in normalized device coordinates (-1 to +1)
+        const mouse = new THREE.Vector2();
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        const raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera(mouse, camera);
+
+        const intersects = raycaster.intersectObjects(planets);
+        if (intersects.length > 0) {
+            const planet = intersects[0].object;
+            tooltip.textContent = planet.name;
+            tooltip.style.left = `${event.clientX + 10}px`;
+            tooltip.style.top = `${event.clientY - 25}px`;
+            tooltip.classList.add('visible');
+
+            function followPlanet() {
+                if (!tooltip.classList.contains('visible')) return;
+
+                const vector = new THREE.Vector3();
+                planet.getWorldPosition(vector);
+                vector.project(camera);
+
+                const x = Math.round((vector.x + 1) * window.innerWidth / 2);
+                const y = Math.round((-vector.y + 1) * window.innerHeight / 2);
+
+                tooltip.style.left = `${x}px`;
+                tooltip.style.top = `${y - 25}px`;
+
+                requestAnimationFrame(followPlanet);
+            }
+
+            followPlanet();
+        } else {
+            tooltip.classList.remove('visible');
+        }
+    }
+
+    window.addEventListener('click', onMouseClick);
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    camera.position.z = 20;
+
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }, false);
+
+    animate();
+</script>
+</body>
+</html>
