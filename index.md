@@ -5,7 +5,7 @@
 <div id="header-description" style="text-align:center;">
 I'm a <a href="https://www.tiktok.com/@matas_valincius/video/7188634272507399429">software engineer</a> with a passion for innovation, be it code-related or not, and I write to take notes on what I learn (currently: <a href="https://ziglang.org">Zig</a>).
 <p>Lately more specialized in DevOps and systems programming, my fixation has always been to optimize software, processes and people, because don't you love it when you can do something in 5 minutes manually but you manage to automate it in 5 months?</p>
-<p>Former maintainer of <a href="https://github.com/balena-io/etcher">Etcher</a> and <a href="https://balena.io/etcher-pro">Etcher Pro</a>, I'm now helping <a href="https://postman.com">Postman</a>  streamline its build process and internal tools for delivering high-quality code around the world.</p>
+<p>Former maintainer of <a href="https://github.com/balena-io/etcher">Etcher</a> and <a href="https://balena.io/etcher-pro">Etcher Pro</a>, I'm now working on Chromium and Electron internally for [REDACTED] to streamline its build process and internal tools for delivering high-quality APIs for millions of people around the world.</p>
 <p>Also professional shitposter, but that's for another time.</p>
 <form action="https://donate.stripe.com/14kdRBfCL08U4la144"><input type="submit" style="background:lightgreen;border:none;border-radius:20px;padding:4px 10px;" value="Donate a slice of pizza"/></form>
 </div>
