@@ -3,7 +3,8 @@
 <img src="/header-photo.jpg" style="border-radius:50%;width:150px;height:150px;" />
 </div>
 <div id="header-description" style="text-align:center;">
-<p>Former maintainer of <a href="https://github.com/balena-io/etcher">Etcher</a> and <a href="https://balena.io/etcher-pro">Etcher Pro</a>, I'm now working on Chromium and Electron internally for [REDACTED] to streamline its build process and internal tools for delivering high-quality APIs for millions of people around the world.</p>
+<p>I'm now working on Chromium and Electron internally for Postman to streamline its build process and internal tools for delivering high-quality APIs for millions of people around the world.</p>
+<p>Former maintainer of <a href="https://github.com/balena-io/etcher">Etcher</a> and <a href="https://balena.io/etcher-pro">Etcher Pro</a></p>
 <a href="https://www.tiktok.com/@matas_valincius/video/7188634272507399429">Software engineer</a> with a passion for innovation, I write to take notes on what I learn (currently: how to run a business).
 <p>Lately more specialized in systems programming, my fixation has always been to optimize everything, including people and processes.</p>
 <p>Also professional shitposter, but that's for another time.</p>
