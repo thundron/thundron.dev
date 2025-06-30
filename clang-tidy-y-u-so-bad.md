@@ -1,3 +1,5 @@
+<div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/notes">Notes</a></div>
+
 # clang-tidy, y u so bad?
 
 If you've ever watched `clang++` compile your code without issues, then run `clang-tidy` only to get:
@@ -11,28 +13,25 @@ and been left scratching your head in confusion...
 Welcome to the club.
 
 ## What's going on?
+<pre class="mermaid">
+  graph TD;
+    A["User Code"] --> B{"clang++ Driver"};
+    B -- "Adds System Includes" --> C["Clang Frontend"];
+    C --> D["Compile Object File"];
 
-<pre>
-  <code class="mermaid-diagram">
-    graph TD;
-      A["User Code"] --> B{"clang++ Driver"};
-      B -- "Adds System Includes" --> C["Clang Frontend"];
-      C --> D["Compile Object File"];
-  
-      E["User Code"] --> F{"clang-tidy Tool"};
-      F -- "Calls Clang Frontend Directly" --> G["Clang Frontend (Missing System Includes)"];
-      G -- "Fails to Find Headers" --> H["Fatal Error: File Not Found"];
-  
-      style A fill:#f9f,stroke:#333,stroke-width:2px
-      style B fill:#bbf,stroke:#333,stroke-width:2px
-      style C fill:#ccf,stroke:#333,stroke-width:2px
-      style D fill:#9f9,stroke:#333,stroke-width:2px
-  
-      style E fill:#f9f,stroke:#333,stroke-width:2px
-      style F fill:#fbb,stroke:#333,stroke-width:2px
-      style G fill:#fcc,stroke:#333,stroke-width:2px
-      style H fill:#f66,stroke:#333,stroke-width:2px
-  </code>
+    E["User Code"] --> F{"clang-tidy Tool"};
+    F -- "Calls Clang Frontend Directly" --> G["Clang Frontend (Missing System Includes)"];
+    G -- "Fails to Find Headers" --> H["Fatal Error: File Not Found"];
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#ccf,stroke:#333,stroke-width:2px
+    style D fill:#9f9,stroke:#333,stroke-width:2px
+
+    style E fill:#f9f,stroke:#333,stroke-width:2px
+    style F fill:#fbb,stroke:#333,stroke-width:2px
+    style G fill:#fcc,stroke:#333,stroke-width:2px
+    style H fill:#f66,stroke:#333,stroke-width:2px
 </pre>
 
 `clang++` acts as a compiler driver. It automatically determines the locations of your system headers, how to find the macOS SDK, and which include paths to add behind the scenes. This involves a set of automatic configurations you don't see by default.
@@ -105,12 +104,6 @@ Until the Clang ecosystem bridges this gap, native C++ developers face a choice:
 
 ---
 
-## To conclude
-
-While the problem of `clang-tidy` not finding system headers is a persistent challenge for C++ developers, understanding the distinction between the compiler driver and the frontend is key to navigating these toolchain complexities. Until a more integrated solution is available, manual configuration and custom scripting remain necessary for robust static analysis setups.
-
----
-
 ### Related discussions and resources
 
 * [LLVM Issue #46804: clang-tidy doesn't work correctly when compile_commands.json contains symlink to clang](https://github.com/llvm/llvm-project/issues/46804)
@@ -118,15 +111,11 @@ While the problem of `clang-tidy` not finding system headers is a persistent cha
 * [David Li on clang-tidy & Conda](https://www.lidavidm.me/c++/2023/06/16/c++-clang-tidy-complains-it-can-t-find-common-headers-especially-under-conda-conda-forge.html) (Note: also check if your CC/CXX environment variables point to symlinked compilers.)
 * [Stack Overflow: Clang vs clang++ include differences](https://stackoverflow.com/questions/74842298/clang-cant-find-system-headers-without-stdlib-libc)
 
-<script>
-const config = {
-  startOnLoad:true,
-  theme: "forest",
-  flowchart: {
-      useMaxWidth: false,
-      htmlLabels: true
-  }
-};
-mermaid.initialize(config);
-window.mermaid.init(undefined, document.querySelectorAll('.mermaid-diagram'));
+---
+
+While the problem of `clang-tidy` not finding system headers is a persistent challenge for C++ developers, understanding the distinction between the compiler driver and the frontend is key to navigating these toolchain complexities. Until a more integrated solution is available, manual configuration and custom scripting remain necessary for robust static analysis setups.
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true});
 </script>

@@ -86,7 +86,7 @@ int much_interesting_very_manual() {
 }
 ```
 
-## Conclusion
+## To conclude
 
 I think C++ still has a strong place amongst system programming languages and will not go away anytime soon.
 Errors can be avoided much more reliably through the use of automated processes and tools, which is the reason many people are gravitating more and more towards things like Rust where there's a stronger ruleset that is harder to escape, but there are many ways to avoid errors in C++ too if one knows how to properly manage resources and does so.

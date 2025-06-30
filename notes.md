@@ -2,4 +2,6 @@
 
 # Notes
 
+2025 Jun 30 - [clang-tidy: y u so bad?](/clang-tidy-y-u-so-bad)
+
 2024 May 03 - [Memory safe C++: memory leaks](/memory-safe-cpp)
