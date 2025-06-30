@@ -12,26 +12,28 @@ Welcome to the club.
 
 ## What's going on?
 
-```mermaid
-  graph TD;
-    A["User Code"] --> B{"clang++ Driver"};
-    B -- "Adds System Includes" --> C["Clang Frontend"];
-    C --> D["Compile Object File"];
-
-    E["User Code"] --> F{"clang-tidy Tool"};
-    F -- "Calls Clang Frontend Directly" --> G["Clang Frontend (Missing System Includes)"];
-    G -- "Fails to Find Headers" --> H["Fatal Error: File Not Found"];
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#ccf,stroke:#333,stroke-width:2px
-    style D fill:#9f9,stroke:#333,stroke-width:2px
-
-    style E fill:#f9f,stroke:#333,stroke-width:2px
-    style F fill:#fbb,stroke:#333,stroke-width:2px
-    style G fill:#fcc,stroke:#333,stroke-width:2px
-    style H fill:#f66,stroke:#333,stroke-width:2px
-```
+<pre>
+  <code class="mermaid-diagram">
+    graph TD;
+      A["User Code"] --> B{"clang++ Driver"};
+      B -- "Adds System Includes" --> C["Clang Frontend"];
+      C --> D["Compile Object File"];
+  
+      E["User Code"] --> F{"clang-tidy Tool"};
+      F -- "Calls Clang Frontend Directly" --> G["Clang Frontend (Missing System Includes)"];
+      G -- "Fails to Find Headers" --> H["Fatal Error: File Not Found"];
+  
+      style A fill:#f9f,stroke:#333,stroke-width:2px
+      style B fill:#bbf,stroke:#333,stroke-width:2px
+      style C fill:#ccf,stroke:#333,stroke-width:2px
+      style D fill:#9f9,stroke:#333,stroke-width:2px
+  
+      style E fill:#f9f,stroke:#333,stroke-width:2px
+      style F fill:#fbb,stroke:#333,stroke-width:2px
+      style G fill:#fcc,stroke:#333,stroke-width:2px
+      style H fill:#f66,stroke:#333,stroke-width:2px
+  </code>
+</pre>
 
 `clang++` acts as a compiler driver. It automatically determines the locations of your system headers, how to find the macOS SDK, and which include paths to add behind the scenes. This involves a set of automatic configurations you don't see by default.
 
@@ -115,3 +117,16 @@ While the problem of `clang-tidy` not finding system headers is a persistent cha
 * [Stack Overflow: clang-tidy not finding headers](https://stackoverflow.com/questions/78491627/clang-tidy-not-finding-a-header-file)
 * [David Li on clang-tidy & Conda](https://www.lidavidm.me/c++/2023/06/16/c++-clang-tidy-complains-it-can-t-find-common-headers-especially-under-conda-conda-forge.html) (Note: also check if your CC/CXX environment variables point to symlinked compilers.)
 * [Stack Overflow: Clang vs clang++ include differences](https://stackoverflow.com/questions/74842298/clang-cant-find-system-headers-without-stdlib-libc)
+
+<script>
+const config = {
+  startOnLoad:true,
+  theme: "forest",
+  flowchart: {
+      useMaxWidth: false,
+      htmlLabels: true
+  }
+};
+mermaid.initialize(config);
+window.mermaid.init(undefined, document.querySelectorAll('.mermaid-diagram'));
+</script>
