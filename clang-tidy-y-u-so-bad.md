@@ -104,16 +104,18 @@ Until the Clang ecosystem bridges this gap, native C++ developers face a choice:
 
 ---
 
+## To conclude
+
+While the problem of `clang-tidy` not finding system headers is a persistent challenge for C++ developers, understanding the distinction between the compiler driver and the frontend is key to navigating these toolchain complexities. Until a more integrated solution is available, manual configuration and custom scripting remain necessary for robust static analysis setups.
+
+---
+
 ### Related discussions and resources
 
 * [LLVM Issue #46804: clang-tidy doesn't work correctly when compile_commands.json contains symlink to clang](https://github.com/llvm/llvm-project/issues/46804)
 * [Stack Overflow: clang-tidy not finding headers](https://stackoverflow.com/questions/78491627/clang-tidy-not-finding-a-header-file)
 * [David Li on clang-tidy & Conda](https://www.lidavidm.me/c++/2023/06/16/c++-clang-tidy-complains-it-can-t-find-common-headers-especially-under-conda-conda-forge.html) (Note: also check if your CC/CXX environment variables point to symlinked compilers.)
 * [Stack Overflow: Clang vs clang++ include differences](https://stackoverflow.com/questions/74842298/clang-cant-find-system-headers-without-stdlib-libc)
-
----
-
-While the problem of `clang-tidy` not finding system headers is a persistent challenge for C++ developers, understanding the distinction between the compiler driver and the frontend is key to navigating these toolchain complexities. Until a more integrated solution is available, manual configuration and custom scripting remain necessary for robust static analysis setups.
 
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
