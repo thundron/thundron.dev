@@ -81,7 +81,7 @@ The most common solutions are:
 
 Solutions aside, none of these approaches are truly elegant; they often feel like temporary fixes rather than proper solutions.
 
-## The "correct" fix (if you could change clang-tidy)
+## The "correct" fix
 
 The real solution is for `clang-tidy` to *call the driver internally* or otherwise reconstruct the full compiler command, including system includes.
 
@@ -95,9 +95,9 @@ None of these have been done `clang-tidy` yet, to my knowledge.
 
 ## Why does this matter?
 
-Enabling `CMAKE_EXPORT_COMPILE_COMMANDS=ON` gives the impression that everything should "just work," but in reality, this flag doesn't fully capture the necessary compiler context for tools like `clang-tidy`. As a result, users are often left confused when things break, since the exported commands don't include all the system paths and flags the driver would inject, leading to extra troubleshooting and brittle setups.
+Enabling `CMAKE_EXPORT_COMPILE_COMMANDS=ON` gives the impression that *all* necessary flags and configurations would be exported but instead, it doesn't fully capture the necessary compiler context (at least for tools like `clang-tidy`), which means we're just left confused with a seemingly nonsensical error, since the exported commands don't *actually* include all the system paths and flags the driver would inject, leading to extra troubleshooting and brittle setups.
 
-Until the Clang ecosystem bridges this gap, native C++ developers face a choice:
+Until somebody bridges this gap in clang, we have two options:
 
 * Manually manage system paths across all their tooling, or
 * Develop custom scripts to patch or wrap their existing tools.
@@ -106,7 +106,9 @@ Until the Clang ecosystem bridges this gap, native C++ developers face a choice:
 
 ## To conclude
 
-While the problem of `clang-tidy` not finding system headers is a persistent challenge for C++ developers, understanding the distinction between the compiler driver and the frontend is key to navigating these toolchain complexities. Until a more integrated solution is available, manual configuration and custom scripting remain necessary for robust static analysis setups.
+While the problem of `clang-tidy` not finding system headers is a persistent challenge, understanding the distinction between the compiler driver and the frontend is key to navigating these toolchain complexities.
+
+Until a more integrated solution is available, manual configuration and custom scripting remain necessary for robust static analysis setups.
 
 ---
 
