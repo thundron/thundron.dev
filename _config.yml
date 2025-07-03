@@ -9,6 +9,7 @@ baseurl: ""
 markdown: kramdown
 highlighter: rouge
 theme: minima
+permalink: /:year/:month/:day/:title.html
 
 # Jekyll plugins
 plugins:
