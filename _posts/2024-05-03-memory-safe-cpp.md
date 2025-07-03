@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Memory safe C++: memory leaks"
+date: 2024-05-03
+categories: [programming, cpp]
+tags: [memory-safety, systems-programming]
+---
+
 <div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/notes">Notes</a></div>
 
 # Memory safe C++: memory leaks

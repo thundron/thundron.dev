@@ -1,0 +1,47 @@
+title: thundron.dev
+description: Personal blog and portfolio of a systems programmer
+author: thundron
+email: 
+url: "https://thundron.dev"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Jekyll plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "thundron"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# SEO settings
+logo: /header-photo.jpg
+social:
+  name: thundron
+  links:
+    - https://github.com/thundron
+
+# Exclude from processing
+exclude:
+  - node_modules/
+  - ampcode/
+  - AGENT.md
+  - package.json
+  - bun.lock
+  - README.md

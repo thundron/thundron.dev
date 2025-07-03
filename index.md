@@ -1,4 +1,4 @@
-<div id="header-menu" style="text-align:right;"><a href="/">About</a> | <a href="/notes">Notes</a></div>
+
 <div id="header-photo" style="text-align:center;">
 <img src="/header-photo.jpg" style="border-radius:50%;width:150px;height:150px;" />
 </div>
@@ -25,6 +25,6 @@
 
 # Notes
 
-2025 Jun 30 - [clang-tidy: y u so bad?](/clang-tidy-y-u-so-bad)
+2025 Jun 30 - [clang-tidy: y u so bad?](/2025/06/30/clang-tidy-y-u-so-bad.html)
 
-2024 May 03 - [Memory safe C++: memory leaks](/memory-safe-cpp)
+2024 May 03 - [Memory safe C++: memory leaks](/2024/05/03/memory-safe-cpp.html)
